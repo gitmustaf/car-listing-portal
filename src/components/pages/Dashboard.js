@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import CarFilter from '../dashboard/CarFilter'
-import RecordTable from '../dashboard/RecordTable'
+import RecordTable from '../table/RecordTable'
 
 const Dashboard = () => {
     return (
