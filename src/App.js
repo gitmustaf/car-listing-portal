@@ -1,14 +1,18 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './bulma.min.css'
+// importing components
+import Navbar from './components/layout/Navbar';
+import Dashboard from './components/pages/Dashboard'
 
-const App = () => {
-  return (
-    <div className="App">
-      <h1>
-        Car dealer
-      </h1>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Navbar />
+        <Dashboard />
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
