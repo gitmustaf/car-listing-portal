@@ -1,5 +1,6 @@
 import React from 'react'
-
+import FilterAttribute from '../filer/filter'
+import SearchField from '../Search' 
 const CarFilter = () => {
     return (
         <div className='hero is-light is-bold'>
@@ -14,8 +15,21 @@ const CarFilter = () => {
                                 Deals on wheels
                             </h2>
                         </div>
-                        <div className='column is-10'>
-                            here is the filter
+                        <div className='column is-7'>
+                            <div className='columns'>
+                            <div className='column is-2'>
+                                <FilterAttribute options = {['Make','BMW','VOLSKWAGEN','AUDI']}/>
+                            </div>
+                            <div className='column is-2'>
+                                <FilterAttribute options = {['Model','Camry', 'Caliber', 'Elantra GT']}/>
+                            </div>
+                            <div className='column is-3'>
+                                <FilterAttribute options = {['Year','2018','2019','2017']}/>
+                            </div>
+                            </div>
+                        </div>
+                        <div className='colum is-3'>
+                            <SearchField />
                         </div>
                     </div>
                 </div>
