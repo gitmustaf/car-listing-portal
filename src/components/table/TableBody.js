@@ -5,6 +5,12 @@ const TableBody = () => {
     return (
         <tbody>
             <TableRows />
+            <TableRows />
+            <TableRows />
+            <TableRows />
+            <TableRows />
+            <TableRows />
+            <TableRows />
         </tbody>
     )
 }

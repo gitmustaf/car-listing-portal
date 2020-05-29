@@ -1,5 +1,6 @@
 import React from 'react'
-import DeleteButton from '../Buttons'
+import ExpandBtn from '../ExpandBtn';
+import DeleteBtn from '../Buttons';
 
 const TableRows = () => {
     return (
@@ -12,10 +13,11 @@ const TableRows = () => {
             <td>20 km/ltr</td>
             <td>NAN</td>
             <td>Click</td>
-            <td>Bengaluru,IN</td>
-            <td>12/02/2020</td>
             <td>
-            <DeleteButton />
+                <div className='buttons'>
+                    <ExpandBtn />
+                    <DeleteBtn />
+                </div>
             </td>
         </tr>
     )

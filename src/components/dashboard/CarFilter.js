@@ -15,8 +15,8 @@ const CarFilter = () => {
                                 Deals on wheels
                             </h2>
                         </div>
-                        <div className='column is-7'>
-                            <div className='columns'>
+                        <div className='column is-6'>
+                            <div className='columns is-multiline'>
                             <div className='column is-2'>
                                 <FilterAttribute options = {['Make','BMW','VOLSKWAGEN','AUDI']}/>
                             </div>
