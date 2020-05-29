@@ -1,7 +1,12 @@
 import React from 'react'
-import DeleteButton from '../Buttons'
+import ExpandBtn from '../ExpandBtn';
+import DeleteBtn from '../CardHeaderDeleteBtn';
 
-const TableRows = () => {
+const TableRows = ({setPopUpClassToSet}) => {
+    const setPopUpActiveClass = (isActive) => {
+        setPopUpClassToSet(isActive);
+        console.log(`isactive - ${isActive}`)
+    }
     return (
         <tr>
             <td>1</td>
@@ -12,10 +17,11 @@ const TableRows = () => {
             <td>20 km/ltr</td>
             <td>NAN</td>
             <td>Click</td>
-            <td>Bengaluru,IN</td>
-            <td>12/02/2020</td>
             <td>
-            <DeleteButton />
+                <div className='buttons'>
+                    <ExpandBtn setPopUpActiveClass={setPopUpActiveClass} />
+                    <DeleteBtn />
+                </div>
             </td>
         </tr>
     )
