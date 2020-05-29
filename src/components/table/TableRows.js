@@ -1,6 +1,6 @@
 import React from 'react'
 import ExpandBtn from '../ExpandBtn';
-import DeleteBtn from '../Buttons';
+import DeleteBtn from '../CardHeaderDeleteBtn';
 
 const TableRows = ({setPopUpClassToSet}) => {
     const setPopUpActiveClass = (isActive) => {
