@@ -2,7 +2,11 @@ import React from 'react'
 import ExpandBtn from '../ExpandBtn';
 import DeleteBtn from '../Buttons';
 
-const TableRows = () => {
+const TableRows = ({setPopUpClassToSet}) => {
+    const setPopUpActiveClass = (isActive) => {
+        setPopUpClassToSet(isActive);
+        console.log(`isactive - ${isActive}`)
+    }
     return (
         <tr>
             <td>1</td>
@@ -15,7 +19,7 @@ const TableRows = () => {
             <td>Click</td>
             <td>
                 <div className='buttons'>
-                    <ExpandBtn />
+                    <ExpandBtn setPopUpActiveClass={setPopUpActiveClass} />
                     <DeleteBtn />
                 </div>
             </td>

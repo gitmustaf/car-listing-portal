@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ExpandBtn = ({title,icon}) => {
+const ExpandBtn = ({title,icon,setPopUpActiveClass}) => {
+    const onClick = () => {
+        setPopUpActiveClass(true)
+    }
     return (
-        <button className='button is-link is-small'>
+        <button className='button is-link is-small' onClick={onClick}>
             <span className='icon'>
                 <i className={icon}></i>
             </span>
