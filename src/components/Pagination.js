@@ -25,15 +25,27 @@ const PaginationComponent = () => {
   })};
 
   return (
-      <div>
+      <center>
+        <br />
         <Pagination
           activePage={state.activePage}
           itemsCountPerPage={10}
           totalItemsCount={state.totalCount}
           pageRangeDisplayed={5}
           onChange={(pageNo) => handleChange(pageNo)}
+          innerClass='pagination is-rounded is-right'
+          activeClass='is-current'
+          itemClass='pagination-link'
+          activeLinkClass='has-text-light'
+          itemClassPrev='pagination-previous'
+          itemClassNext='pagination-next'
+          hideDisabled
+          firstPageText='First'
+          lastPageText='Last page'
+          nextPageText='Next page'
+          prevPageText='Previous'
         />
-      </div>
+      </center>
   )
 }
 
