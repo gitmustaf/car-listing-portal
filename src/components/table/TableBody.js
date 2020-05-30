@@ -17,7 +17,9 @@ const TableBody = () => {
       const fetchData = () => {
           axios.get('/car/info', {
           params: {
-            offset : state.offset
+            offset : state.offset,
+            functionType : 'getWithOffset',
+            tableName: 'carCatalog'
           }
         }).then(res => {
           response.current = res.data;

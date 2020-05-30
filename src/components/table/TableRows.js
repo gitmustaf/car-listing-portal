@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import DeleteBtn from '../CardHeaderDeleteBtn';
 import ExpandBtn from '../ExpandBtn';
+import Context from '../../store/context';
 
 const TableRows = (props) => {
+    
+    const {state} = useContext(Context);
+    
     return (
         props.tableData.map((value, index) => <tr key={index}>
-        <td>{value[0]}</td>
+        <td>{index+1+state.offset}</td>
         <td>{value[1]}</td>
         <td>{value[2]}</td>
         <td>{value[3]}</td>
