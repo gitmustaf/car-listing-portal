@@ -1,26 +1,39 @@
-import React from 'react'
-import TableRows from '../table/TableRows'
-import axios from '../../axios'
+import React, {useContext, useEffect, useRef, useCallback} from 'react';
 
-export default class TableBody extends React.Component {
-  state = {
-    tableData: []
-  }
+import TableRows from '../table/TableRows';
+import axios from '../../axios';
+import Context from '../../store/context';
 
-  componentDidMount() {
-    axios.get('/car/info')
-      .then(res => {
-        const tableData = res.data;
-        this.setState({ tableData });
-      })
-  }
+const TableBody = () => {
+    const {state, actions} = useContext(Context);
+    const response = useRef();
 
-  render() {
+    const setSate = useCallback(
+      (newStateValue) => {
+        actions({type:'setState', payload: {...state, tableData: newStateValue['data'], totalCount:newStateValue['total_count']}})
+      },[state, actions]);
+
+    useEffect(() => {
+      const fetchData = () => {
+          axios.get('/car/info', {
+          params: {
+            offset : state.offset
+          }
+        }).then(res => {
+          response.current = res.data;
+          setSate(response.current)
+          console.log(res)
+        })
+      };
+      fetchData();
+    }, []);
 
     return (
-        <tbody>
-            <TableRows tableData={this.state.tableData}/>
-        </tbody>
+      <tbody>
+            <TableRows tableData={state.tableData}/>
+      </tbody>
     )
-  }
 }
+
+export default TableBody
+
