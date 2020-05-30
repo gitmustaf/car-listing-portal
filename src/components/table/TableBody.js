@@ -1,16 +1,26 @@
 import React from 'react'
 import TableRows from '../table/TableRows'
+import axios from '../../axios'
 
-const TableBody = ({setPopUpActiveClass}) => {
-    const setPopUpClassToSet = (isActive) => {
-        setPopUpActiveClass(isActive);
-        console.log(`isactive body ${isActive}`)
-    }
+export default class TableBody extends React.Component {
+  state = {
+    tableData: []
+  }
+
+  componentDidMount() {
+    axios.get('/car/info')
+      .then(res => {
+        const tableData = res.data;
+        this.setState({ tableData });
+      })
+  }
+
+  render() {
+
     return (
         <tbody>
-            <TableRows setPopUpClassToSet={setPopUpClassToSet} />
+            <TableRows tableData={this.state.tableData}/>
         </tbody>
     )
+  }
 }
-
-export default TableBody

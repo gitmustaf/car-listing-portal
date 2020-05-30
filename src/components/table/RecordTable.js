@@ -1,21 +1,16 @@
-import React, { useState } from 'react'
-// importing modules
-import TableHeader from './Header'
-import TableBody from './TableBody'
-import PopupModal from '../PopupModal'
+import React, {useContext } from 'react';
+
+import TableHeader from './TableHeader';
+import TableBody from './TableBody';
+import TableFooter from './TableFooter';
+import PopupModal from '../PopupModal';
+import Pagination from '../Pagination';
+import Context from '../../store/context';
 
 const RecordTable = () => {
-    const [popUpActive,setActive] = useState(false);
-    // list of table headers
-    // const tableHeads = ['S.no.','VIN','Make','Model','Year','Mileage','CR','URL','Location','Date','Options']
     const tableHeads = ['S.no.','VIN','Make','Model','Year','Mileage','CR','URL','Option']
-    const setPopUpActiveClass = (isActive) => {
-        setActive(isActive);
-        console.log(popUpActive);
-    }
-    const closeModal = () => {
-        setActive(false);
-    }
+
+    const {state} = useContext(Context);    
     return (
         <div className='container'>
             <div className='columns is-multiline'>
@@ -25,14 +20,15 @@ const RecordTable = () => {
                         <div className='table-container'>
                             <table className='table is-fullwidth is-hoverable is-narrow'>
                                 <TableHeader columns={tableHeads} />
-                                <TableBody setPopUpActiveClass={setPopUpActiveClass} />
+                                <TableBody  />
+                                <TableFooter footerContent={Pagination}/>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
             {/* modal component */}
-            {popUpActive && <PopupModal closeModal={closeModal} />}
+            {state.popup && <PopupModal />}
         </div>
     )
 }
