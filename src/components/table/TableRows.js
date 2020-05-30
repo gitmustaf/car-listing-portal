@@ -1,29 +1,26 @@
-import React from 'react'
-import ExpandBtn from '../ExpandBtn';
-import DeleteBtn from '../CardHeaderDeleteBtn';
+import React from 'react';
 
-const TableRows = ({setPopUpClassToSet}) => {
-    const setPopUpActiveClass = (isActive) => {
-        setPopUpClassToSet(isActive);
-        console.log(`isactive - ${isActive}`)
-    }
+import DeleteBtn from '../CardHeaderDeleteBtn';
+import ExpandBtn from '../ExpandBtn';
+
+const TableRows = (props) => {
     return (
-        <tr>
-            <td>1</td>
-            <td>ABC</td>
-            <td>Volkswagen</td>
-            <td>City 200</td>
-            <td>2016</td>
-            <td>20 km/ltr</td>
-            <td>NAN</td>
-            <td>Click</td>
-            <td>
-                <div className='buttons'>
-                    <ExpandBtn setPopUpActiveClass={setPopUpActiveClass} />
-                    <DeleteBtn />
-                </div>
-            </td>
-        </tr>
+        props.tableData.map((value, index) => <tr key={index}>
+        <td>{value[0]}</td>
+        <td>{value[1]}</td>
+        <td>{value[2]}</td>
+        <td>{value[3]}</td>
+        <td>{value[4]}</td>
+        <td>{value[5]}</td>
+        <td>{value[6]}</td>
+        <td><a href={value[7]} target="_blank" rel="noopener noreferrer">{value[7]}</a></td>
+        <td>
+            <div className='buttons'>
+                <ExpandBtn  value={value}/>
+                <DeleteBtn />
+            </div>
+        </td>
+    </tr>)
     )
 }
 
