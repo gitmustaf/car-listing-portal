@@ -16,7 +16,9 @@ const PaginationComponent = () => {
     const offset = (pageNo * 10 - 10);
     axios.get('/car/info', {
       params: {
-        offset : pageNo * 10 - 10
+        offset : pageNo * 10 - 10,
+        functionType : 'getWithOffset',
+        tableName: 'carCatalog'
       }
     }).then(res => {
     console.log(res)
