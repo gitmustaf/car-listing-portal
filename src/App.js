@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import './bulma.min.css'
+
+// importing css
+import './App.css';
+
 // importing components
 import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard'
